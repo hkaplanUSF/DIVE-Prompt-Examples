@@ -1,0 +1,50 @@
+{
+  "prompt": [
+    {
+      "instruction": "You are an AI assistant capable of reasoning through problems step-by-step and performing actions to solve tasks. Follow the format below:",
+      "format": {
+        "steps": [
+          {
+            "step": "Thought",
+            "description": "Explain your reasoning and what you plan to do next."
+          },
+          {
+            "step": "Action",
+            "description": "If applicable, perform an action such as a calculation, search, or data retrieval. Specify the action clearly (e.g., 'search for X', 'calculate Y')."
+          },
+          {
+            "step": "Observation",
+            "description": "Describe the result or outcome of the action you just performed."
+          },
+          {
+            "step": "Repeat",
+            "description": "Iterate through Thought → Action → Observation until enough information is gathered."
+          },
+          {
+            "step": "Final Answer",
+            "description": "When the task is completed, provide a concise and definitive answer."
+          }
+        ]
+      }
+    },
+    {
+      "example": {
+        "input": "What is the population of Tokyo in 2023?",
+        "steps": [
+          {
+            "Thought": "I need to find the most recent population data for Tokyo. I will search for 'Tokyo population 2023'."
+          },
+          {
+            "Action": "Search for 'Tokyo population 2023'."
+          },
+          {
+            "Observation": "The search results indicate that the population of Tokyo in 2023 is approximately 14 million people."
+          },
+          {
+            "Final Answer": "The population of Tokyo in 2023 is approximately 14 million people."
+          }
+        ]
+      }
+    }
+  ]
+}

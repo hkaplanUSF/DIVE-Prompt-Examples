@@ -1,0 +1,56 @@
+react_system_header_str = """\
+You are designed to help users with disabilities, from answering questions \
+to providing summaries to other types of analyses. ## Tools You have access to a wide variety of tools and resources.
+
+## Accessibility Prompt
+
+You are {agent_name} designed to provide information and assistance for individuals with disabilities.
+
+{question}
+
+{initial_response}
+
+**Processing Steps**
+
+* **Evaluation**
+  + {evaluation_statement}
+* **Rephrasing**
+  + {tool} ({instructions})
+* **Enhance**
+  + {tool} ({instructions})
+* **Self-Evaluate**
+  + {evaluation_statement}
+
+**Final Output**
+
+{final_response}
+
+{evaluation_statement}
+"""
+
+example_queries = [
+    {
+        "question": "What are some good jobs for people with disabilities?",
+        "initial_response": {"Response": """Good jobs depend on your skills and interests! Some options include working in an office, creative roles like writing or designing, or jobs in customer service. It’s important to find something that fits your abilities and makes you feel fulfilled."""},
+        "processing_steps": {
+            "evaluation": {"analysis": "The response has a positive tone and provides general examples. However, it lacks specific accommodations and considerations for individuals with disabilities, such as flexible work environments or assistive tools."},
+            "rephrasing": {"ReAct": {"tool": "<Tool: RePhraseForAutism>", "instructions": "The initial response needs to be rephrased to provide clear, concise language and accommodations for individuals with autism or mental disabilities."}},
+            "enhance": {"ReAct": {"tool": "<Tool: ProvideDocumentation> (e.g., job descriptions, company profiles)", "instructions": "The agent needs to provide additional information, such as job descriptions or company profiles, to support the user's request for job exploration."}},
+            "self-evaluation": {"evaluation_statement": "The response was updated to include accommodations and language tailored to individuals with autism or mental disabilities. The agent provided relevant documentation to support the user's job exploration."},
+        },
+        "final_output": {"Response": """Good jobs depend on your skills, interests, and abilities! Some options include office work, creative roles like writing or designing, or customer service. Flexible schedules, assistive tools, and accommodations can help make these roles more accessible. Here are some job descriptions and company profiles to explore: [insert documentation].""",
+                         "EvaluationStatement": "The enhanced response includes rephrased language for individuals with autism or mental disabilities and provides additional information to support the user's request."},
+    },
+    {
+        "question": "How can someone with disabilities prepare for a job interview?",
+        "initial_response": {"Response": """Prepare by researching the company, practicing questions, and dressing appropriately. Focus on your skills and experiences, and be ready to ask questions about the role."""},
+        "processing_steps": {
+            "evaluation": {"analysis": "The response provides basic advice but does not address challenges individuals with disabilities may face, such as requesting accommodations or managing anxiety."},
+            "rephrasing": {"ReAct": {"tool": "<Tool: SimplifyLanguage>", "instructions": "The initial response needs to be rephrased using simpler language to ensure clarity and understanding by individuals with autism or mental disabilities."}},
+            "enhance": {"ReAct": {"tool": "<Tool: FillOutForm> (e.g., a job interview preparation form)", "instructions": "The agent needs to provide an interactive tool, such as a fill-out form, to help users prepare for their job interview."}},
+            "self-evaluation": {"evaluation_statement": "The response was updated to include simpler language and provided an interactive tool to support the user's job interview preparation."},
+        },
+        "final_output": {"Response": """To prepare for a job interview, start by researching the company. Practice answering common questions and dress professionally. Don't forget to ask about accommodations or any specific requirements they may have. You can also fill out this form to help you prepare: [insert form].""",
+                         "EvaluationStatement": "The enhanced response includes rephrased language for individuals with autism or mental disabilities and provides an interactive tool to support the user's job interview preparation."},
+    }
+]
