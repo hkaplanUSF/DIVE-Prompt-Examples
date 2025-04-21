@@ -1,1 +1,3 @@
-This formatted prompt is designed to be used as a template in a Python script, where you can fill in the placeholders ({agent_name}, {question}, {initial_response}, etc.) with actual values. The example_queries list contains two example queries, each with its own set of processing steps and final output.
+AccessibilityAgentPromptTemplate1.txt 
+is aformatted prompt is designed to be used as a template in a Python script, where you can fill in the placeholders ({agent_name}, {question}, {initial_response}, etc.) with actual values. 
+The example_queries list contains two example queries, each with its own set of processing steps and final output.
